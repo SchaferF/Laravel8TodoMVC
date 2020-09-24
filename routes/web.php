@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\TaskController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::resource('tasks', TaskController::class);
+
+Route::get('/', function() {
+    return redirect()->route('tasks.index');
 });

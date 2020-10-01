@@ -1,11 +1,27 @@
+
 @extends('layout')
 
 @section('content')
-<h1>My Task list<h1>
+<h1>Task list</h1>
 
-<ul>
-@foreach ($tasks as $task)
-    <li><a href="{{ route('tasks.show', ['task' => $task['id']]) }}">#{{ $task['id'] }} - {{ $task['name'] }}</a></li>
-@endforeach
-</ul>
+<a href="{{ route('tasks.create') }}">New task</a>
+
+<table class="table-auto">
+  <thead>
+    <tr>
+      <th class="px-4 py-2">Id</th>
+      <th class="px-4 py-2">Name</th>
+      <th class="px-4 py-2">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($tasks as $task)
+        <tr>
+            <td>{{ $task->id }}</td>
+            <td>{{ $task->name }}</td>
+            <td><a href="{{ route('tasks.show', ['task' => $task->id]) }}">Show</a></td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
 @endsection

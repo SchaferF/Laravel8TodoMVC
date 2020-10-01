@@ -9,8 +9,8 @@ class Project extends Model
 {
     use HasFactory;
 
-    //eager loading
-    protected $with = ['tasks'];
+    //example of eager loading
+    //protected $with = ['tasks'];
 
     public function tasks()
     {

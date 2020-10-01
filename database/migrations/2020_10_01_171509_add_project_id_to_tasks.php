@@ -14,7 +14,7 @@ class AddProjectIdToTasks extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            //
+            $table->foreignId('project_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddProjectIdToTasks extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            //
+            $table->dropColumn('project_id');
         });
     }
 }
